@@ -1,8 +1,21 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+import { useDarkMode } from './composables/useDarkMode'
+
+// Импортируем реактивную переменную и функцию из useDarkMode
+const { isDarkMode, toggleDarkMode } = useDarkMode()
 </script>
 
 <template>
+  <div class="container mx-auto p-4">
+    <!-- Кнопка для переключения темы -->
+    <button
+      class="px-4 py-2 rounded-md bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+      @click="toggleDarkMode"
+    >
+      {{ isDarkMode ? 'Светлая тема' : 'Темная тема' }}
+    </button>
+  </div>
   <div>
     <a
       href="https://vitejs.dev"
